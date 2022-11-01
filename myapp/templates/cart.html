@@ -1,0 +1,42 @@
+{% extends 'header.html' %}
+{% load static %}
+
+{% block content %}
+<div class="products">
+    <div class="container">
+        <table class="table">
+            <tr>
+                <th>Product Image</th>
+                <th>Name</th>
+                <th>Price</th>
+            </tr>
+            {% for item in cartitems %}
+            <tr>
+                <td><img src="{{item.product.pic.url}}" height="50" width="50" alt=""></td>
+                <td>{{item.product.name}}</td>
+                <td>{{item.product.discountedprice}}</td>
+            </tr>
+            {% endfor %}
+        </table>
+        <br>
+        <div class="col-md-4 col-md-offset-4">
+            <table class="table">
+                <tr>
+                    <td colspan="2">Cart Summary</td>
+                </tr>
+                <tr>
+                    <th>Cart Total</th>
+                    <td>₹ {{carttotal}}</td>
+                </tr>
+                <tr>
+                    <td colspan="2">
+                        <a href="{% url 'pay' %}" class="btn btn-warning">Checkout</a>
+                    </td>
+                </tr>
+            </table>
+        </div>
+    </div>
+</div>
+
+
+{% endblock %}

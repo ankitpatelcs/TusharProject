@@ -1,0 +1,37 @@
+{% extends 'sellerheader.html' %}
+{% load static %}
+
+{% block content %}
+<div class="col-md-6">
+    <form method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+        <div class="form-group">
+            <label class="control-label">Product Name</label>
+            <input name="name" type="text" class="form-control" value="{{pobj.name}}">
+        </div>
+        <div class="form-group">
+            <label class="control-label">Description</label>
+            <input name="des" type="text" class="form-control"  value="{{pobj.des}}">
+        </div>
+        <div class="form-group">
+            <label class="control-label">Price</label>
+            <input name="price" type="text" class="form-control" value="{{pobj.price}}">
+        </div>
+        <div class="form-group">
+            <label class="control-label">Quantity</label>
+            <input name="quantity" type="text" class="form-control" value="{{pobj.quantity}}">
+        </div>
+        <div class="form-group">
+            <label class="control-label">Discount</label>
+            <input name="discount" type="text" class="form-control" value="{{pobj.discount}}">
+        </div>
+        <div class="form-group">
+            <label class="control-label">Product Image</label>
+            <input name="pic" type="file" class="form-control">
+        </div>
+        <div class="form-group">
+            <input type="submit" class="btn btn-info" value="Submit">
+        </div>
+    </form>
+</div>
+{% endblock %}

@@ -1,0 +1,57 @@
+{% extends 'header.html' %}
+{% load static %}
+
+{% block content %}
+<!--- products --->
+<div class="products">
+    <div class="container">
+        <div class="col-md-12 products-right">
+            <div class="agile_top_brands_grids">
+                {% for item in plist %}
+                <div class="col-md-3 top_brand_left" style="margin-bottom:50px">
+                    <div class="hover14 column">
+                        <div class="agile_top_brand_left_grid">
+                            <div class="agile_top_brand_left_grid_pos">
+                                <!-- <img src="images/offer.png" alt=" " class="img-responsive"> -->
+                            </div>
+                            <div class="agile_top_brand_left_grid1">
+                                <figure>
+                                    <div class="snipcart-item block">
+                                        <div class="snipcart-thumb">
+                                            <a href="{% url 'single' item.id %}">
+                                                <img title=" " height="200" width="200" alt=" " src="{{item.pic.url}}">
+                                            </a>
+                                            <p>{{item.name}}</p>
+                                            <h4>₹ {{item.discountedprice}} <span>₹ {{item.price}}</span></h4>
+                                        </div>
+                                        <div class="snipcart-details top_brand_home_details">
+                                            <form action="#" method="post">
+                                                <fieldset>
+                                                    <input type="hidden" name="cmd" value="_cart">
+                                                    <input type="hidden" name="add" value="1">
+                                                    <input type="hidden" name="business" value=" ">
+                                                    <input type="hidden" name="item_name" value="Fortune Sunflower Oil">
+                                                    <input type="hidden" name="amount" value="35.99">
+                                                    <input type="hidden" name="discount_amount" value="1.00">
+                                                    <input type="hidden" name="currency_code" value="USD">
+                                                    <input type="hidden" name="return" value=" ">
+                                                    <input type="hidden" name="cancel_return" value=" ">
+                                                    <a href="{% url 'single' item.id %}" class="btn btn-warning">Add to cart</a>
+                                                </fieldset>
+                                            </form>
+                                        </div>
+                                    </div>
+                                </figure>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                {% endfor %}
+                <div class="clearfix"> </div>
+            </div>
+        </div>
+        <div class="clearfix"> </div>
+    </div>
+</div>
+<!--- products --->
+{% endblock %}

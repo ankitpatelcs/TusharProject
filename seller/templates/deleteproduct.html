@@ -1,0 +1,39 @@
+{% extends 'sellerheader.html' %}
+{% load static %}
+
+{% block content %}
+<div class="col-md-10">
+    <h1>Are you sure you want to delete this?</h1>
+    <br>
+    <form method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+        <div class="form-group">
+            <label class="control-label">Product Name</label>
+            <label>{{pobj.name}}</label>
+        </div>
+        <div class="form-group">
+            <label class="control-label">Description</label>
+            <label>{{pobj.des}}</label>
+        </div>
+        <div class="form-group">
+            <label class="control-label">Price</label>
+            <label>{{pobj.price}}</label>
+        </div>
+        <div class="form-group">
+            <label class="control-label">Quantity</label>
+            <label>{{pobj.quantity}}</label>
+        </div>
+        <div class="form-group">
+            <label class="control-label">Discount</label>
+            <label>{{pobj.discount}}</label>
+        </div>
+        <div class="form-group">
+            <label class="control-label">Product Image</label>
+            <img src="{{pobj.pic.url}}" height="100" width="100">
+        </div>
+        <div class="form-group">
+            <input type="submit" class="btn btn-danger" value="Delete">
+        </div>
+    </form>
+</div>
+{% endblock %}
